@@ -1,6 +1,6 @@
-class CreateWalLPosts < ActiveRecord::Migration
+class CreateWallPosts < ActiveRecord::Migration
   def change
-    create_table :wal_l_posts do |t|
+    create_table :wall_posts do |t|
       t.string :text
       t.string :date
 
