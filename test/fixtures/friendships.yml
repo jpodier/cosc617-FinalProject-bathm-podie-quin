@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requester_id: MyString
+  granter_id: MyString
+  accepted: false
+
+two:
+  requester_id: MyString
+  granter_id: MyString
+  accepted: false

@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bebf2696-3bb7-4b0e-a4c1-aa265ced5d96" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/models/wal_l_post.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20160626121518_create_wal_l_posts.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/fixtures/wal_l_posts.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test/models/wal_l_post_test.rb" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cosc617-FinalProject-bathm-podie-quin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +34,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="87" />
-    <option name="y" value="82" />
+    <option name="x" value="299" />
+    <option name="y" value="489" />
     <option name="width" value="1845" />
     <option name="height" value="998" />
   </component>
@@ -399,15 +396,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1466942723982</updated>
-      <workItem from="1466942725530" duration="745000" />
+      <workItem from="1466942725530" duration="1445000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="745000" />
+    <option name="totallyTimeSpent" value="1445000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="87" y="82" width="1845" height="998" extended-state="0" />
+    <frame x="299" y="489" width="1845" height="998" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25094852" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
