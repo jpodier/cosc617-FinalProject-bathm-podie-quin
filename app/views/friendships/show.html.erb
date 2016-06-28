@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requester:</strong>
+  <%= @friendship.requester_id %>
+</p>
+
+<p>
+  <strong>Granter:</strong>
+  <%= @friendship.granter_id %>
+</p>
+
+<p>
+  <strong>Accepted:</strong>
+  <%= @friendship.accepted %>
+</p>
+
+<%= link_to 'Edit', edit_friendship_path(@friendship) %> |
+<%= link_to 'Back', friendships_path %>

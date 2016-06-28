@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @person.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Interests:</strong>
+  <%= @person.interests %>
+</p>
+
+<p>
+  <strong>Hobbies:</strong>
+  <%= @person.hobbies %>
+</p>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @person.relationship %>
+</p>
+
+<h3>Friends:</h3>
+<ul>
+  <% @person.friends.each do |friend| %>
+      <li><%= friend.name %></li>
+  <% end %>
+</ul>
+
+<h3>Wall Posts:</h3>
+<ul>
+<% @person.wall_posts.each do |wall_post| %>
+  <li><%= wall_post.text %></li>
+<% end %>
+</ul>
+
+<h3>Groups:</h3>
+<ul>
+  <% @person.groups.each do |group| %>
+      <li><%= group.name %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
