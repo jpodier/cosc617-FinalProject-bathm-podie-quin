@@ -12,9 +12,12 @@ Group.delete_all
 WallPost.delete_all
 Friendship.delete_all
 
-robert = Person.create(:name => "Robert")
-jose = Person.create(:name => "Jose")
-pandora = Person.create(:name => "Pandora")
+robert = Person.create(:name => "Robert", :email => "rbathm1@students.towson.edu",
+                       :password => "password", :password_confirmation => "password")
+jose = Person.create(:name => "Jose", :email => "jquinc1@students.towson.edu",
+                     :password => "password", :password_confirmation => "password")
+pandora = Person.create(:name => "Pandora", :email => "jpodie1@students.towson.edu",
+                        :password => "password", :password_confirmation => "password")
 
 robert.friends << jose
 robert.friends << pandora

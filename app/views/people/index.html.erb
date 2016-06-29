@@ -2,34 +2,22 @@
 
 <h1>Listing People</h1>
 
-<table>
+<table class="table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Interests</th>
-      <th>Hobbies</th>
-      <th>Relationship</th>
-      <th colspan="3"></th>
+      <th>Friend?</th>
     </tr>
   </thead>
 
   <tbody>
     <% @people.each do |person| %>
       <tr>
-        <td><%= person.name %></td>
+        <td><%= link_to person.name, person %></td>
         <td><%= person.email %></td>
-        <td><%= person.interests %></td>
-        <td><%= person.hobbies %></td>
-        <td><%= person.relationship %></td>
-        <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= current_person.friends.include? person %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Person', new_person_path %>
