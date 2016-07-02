@@ -19,8 +19,12 @@ jose = Person.create(:name => "Jose", :email => "jquinc1@students.towson.edu",
 pandora = Person.create(:name => "Pandora", :email => "jpodie1@students.towson.edu",
                         :password => "password", :password_confirmation => "password")
 
-robert.friends << jose
-robert.friends << pandora
+robert.friendships.create(granter_id: jose.id, accepted: true)
+#robert.friendships.create(granter_id: pandora.id, accepted: false)
+#robert.friends << jose
+#robert.friends << pandora
+#robert.friend
+#robert.friendships.last.accepted=true
 
 wallPost1 = WallPost.create(:text => "Happy Birthday!")
 robert.wall_posts << wallPost1

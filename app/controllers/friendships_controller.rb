@@ -40,6 +40,7 @@ class FriendshipsController < ApplicationController
   # PATCH/PUT /friendships/1
   # PATCH/PUT /friendships/1.json
   def update
+
     respond_to do |format|
       if @friendship.update(friendship_params)
         format.html { redirect_to @friendship, notice: 'Friendship was successfully updated.' }

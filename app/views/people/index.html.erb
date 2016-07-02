@@ -16,7 +16,17 @@
       <tr>
         <td><%= link_to person.name, person %></td>
         <td><%= person.email %></td>
-        <td><%= current_person.friends.include? person %></td>
+        <% if current_person.friends.include? person %>
+            <td><%= button_to "Remove Friend" %></td>
+        <% elsif current_person.pending_friends.include? person %>
+            <td><%= button_to "Accept Friend Request", {:controller => "friendships", :action => "update", :friendship =>{
+                    :requester_id => person.id , :granter_id => current_person.id, :accepted => true}} %></td>
+        <% elsif current_person.awaiting_friends.include? person %>
+            <td><%= button_to "Cancel Friend Request" %></td>
+        <%else %>
+            <td><%= button_to "Add Friend", {:controller => "friendships", :action => "create", :friendship =>{
+                              :requester_id => current_person.id, :granter_id => person.id, :accepted => false}} %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

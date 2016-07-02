@@ -6,12 +6,14 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:identifier.sqlite</jdbc-url>
+      <libraries />
     </data-source>
     <data-source source="LOCAL" name="Sqlite (Xerial) - development.sqlite3" uuid="409f6c78-5eeb-46f9-be78-36a77a83bb04">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <libraries />
     </data-source>
   </component>
 </project>
