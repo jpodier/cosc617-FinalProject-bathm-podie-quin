@@ -1,33 +1,39 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing People</h1>
+<h1>All People</h1>
 
 <table class="table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Friend?</th>
+      <th>Manage Friend</th>
     </tr>
   </thead>
 
   <tbody>
     <% @people.each do |person| %>
+  <% if current_person != person %>
       <tr>
         <td><%= link_to person.name, person %></td>
         <td><%= person.email %></td>
         <% if current_person.friends.include? person %>
-            <td><%= button_to "Remove Friend" %></td>
+            <td><%= button_to "Remove Friend",
+                              friendship_path(:id => current_person.friendships.find_by(:requester_id => current_person.id, :granter_id => person.id).id),
+                              :method => :delete%></td>
         <% elsif current_person.pending_friends.include? person %>
-            <td><%= button_to "Accept Friend Request", {:controller => "friendships", :action => "update", :friendship =>{
-                    :requester_id => person.id , :granter_id => current_person.id, :accepted => true}} %></td>
+            <td>
+              <%= button_to "Accept Friend Request",
+                            friendship_path(:id => current_person.pending_friendships.find_by(:requester_id => person.id, :granter_id => current_person.id).id,
+                                            :accepted => true), :method => :put %>
+            </td>
         <% elsif current_person.awaiting_friends.include? person %>
-            <td><%= button_to "Cancel Friend Request" %></td>
+            <td><%= button_to "Cancel Friend Request",
+                              friendship_path(:id => current_person.awaiting_friendships.find_by(:requester_id => current_person.id, :granter_id => person.id).id),
+                              :method => :delete %></td>
         <%else %>
-            <td><%= button_to "Add Friend", {:controller => "friendships", :action => "create", :friendship =>{
-                              :requester_id => current_person.id, :granter_id => person.id, :accepted => false}} %></td>
+            <td><%= button_to "Add Friend", friendships_path(:granter_id => person, :accepted => false), :method => :post %></td>
         <% end %>
       </tr>
     <% end %>
+      <%end %>
   </tbody>
 </table>

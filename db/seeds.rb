@@ -19,7 +19,7 @@ jose = Person.create(:name => "Jose", :email => "jquinc1@students.towson.edu",
 pandora = Person.create(:name => "Pandora", :email => "jpodie1@students.towson.edu",
                         :password => "password", :password_confirmation => "password")
 
-robert.friendships.create(granter_id: jose.id, accepted: true)
+#robert.friendships.create(granter_id: jose.id, accepted: true)
 #robert.friendships.create(granter_id: pandora.id, accepted: false)
 #robert.friends << jose
 #robert.friends << pandora
