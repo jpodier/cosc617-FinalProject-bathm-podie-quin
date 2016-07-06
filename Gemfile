@@ -16,6 +16,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem "twitter-bootstrap-rails"
 gem "devise"
+gem "carrierwave"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
