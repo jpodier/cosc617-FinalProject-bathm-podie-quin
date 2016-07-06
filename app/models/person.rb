@@ -14,4 +14,12 @@ class Person < ActiveRecord::Base
 
   has_many :wall_posts
   has_and_belongs_to_many :groups
+
+  def self.search(name)
+    if name
+      where("name LIKE :name", {:name => "%#{name}%"})
+    else
+      find(:all)
+    end
+  end
 end
