@@ -1,5 +1,6 @@
 class WallPostsController < ApplicationController
   before_action :set_wall_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_person!
 
   # GET /wall_posts
   # GET /wall_posts.json
