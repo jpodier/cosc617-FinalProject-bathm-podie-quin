@@ -47,14 +47,16 @@
         </button>
         <a class="navbar-brand" href="#">TowsonBook</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <% if person_signed_in? %>
-            <li><%= link_to "My Profile", "/people/" + current_person.id.to_s  %></li>
-            <li><%= link_to "People", "/people"  %></li>
-            <li><%= link_to "Groups", "/groups"  %></li>
+          <% if person_signed_in? %>
+              <ul class="nav navbar-nav">
+                <li><%= link_to "My Profile", "/people/" + current_person.id.to_s  %></li>
+                <li><%= link_to "People", "/people"  %></li>
+                <li><%= link_to "Groups", "/groups"  %></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Logout", destroy_person_session_path, :method => :delete  %> </li>
-            <% end %>
-          </ul>
+              </ul>
+          <% end %>
         </div>
       </div>
     </div>
