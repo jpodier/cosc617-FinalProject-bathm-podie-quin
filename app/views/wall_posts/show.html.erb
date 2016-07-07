@@ -12,7 +12,7 @@
 
 <p>
   <strong>Person:</strong>
-  <%= @wall_post.person %>
+  <%= link_to @wall_post.person.name, person_path(@wall_post.person)  %>
 </p>
 
 <%= link_to 'Edit', edit_wall_post_path(@wall_post) %> |
