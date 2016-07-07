@@ -1,9 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @group.name %>
-</p>
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<h1><%= @group.name %><br /><small><%= @group.description %></small></h1>
+<hr />
+<% @group.people.each do |person| %>
+    <%= image_tag person.photo_url %>
+<% end %>
+<%= link_to 'Edit', edit_group_path(@group) %>

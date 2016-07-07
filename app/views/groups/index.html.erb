@@ -1,22 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Groups</h1>
+<h1>All Groups</h1>
 
-<table>
+<table class="table-striped">
   <thead>
     <tr>
       <th>Name</th>
-      <th colspan="3"></th>
+      <th>Description</th>
+      <th>Number of Members</th>
+      <th>Manage Membership</th>
     </tr>
   </thead>
 
   <tbody>
     <% @groups.each do |group| %>
       <tr>
-        <td><%= group.name %></td>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to group.name, group %></td>
+        <td><%= group.description %></td>
+        <td><%= group.people.count %></td>
+        <% if current_person.groups.include? group %>
+            <td><%= button_to "Leave Group",
+                              remove_person_from_group_path(:id => group.id),
+                              :method => :delete%></td>
+            <% else %>
+            <td><%= button_to "Join Group",
+                              add_person_to_group_path(:id => group.id),
+                              :method => :post%></td>
+            <% end %>
       </tr>
     <% end %>
   </tbody>

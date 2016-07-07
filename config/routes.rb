@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   devise_for :people
   resources :people
   resources :friendships
-  resources :groups
+  resources :groups do
+    member do
+      post 'people', :to => "groups#add_person", :as => :add_person_to
+      delete 'people', :to => "groups#remove_person", :as => :remove_person_from
+    end
+  end
+
   resources :wall_posts
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

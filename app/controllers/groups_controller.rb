@@ -1,5 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_group, only: [:show, :edit, :update, :destroy, :add_person, :remove_person]
+  before_action :authenticate_person!
 
   # GET /groups
   # GET /groups.json
@@ -19,6 +20,36 @@ class GroupsController < ApplicationController
 
   # GET /groups/1/edit
   def edit
+  end
+
+  def add_person
+    @group.people << current_person
+
+    respond_to do |format|
+      if @group.save
+        format.html { redirect_to @group, notice: 'You have joined the group!' }
+        format.json { render :show, status: :created, location: @group }
+      else
+        format.html { render :new }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
+  def remove_person
+    @group.people.delete(current_person)
+
+    respond_to do |format|
+      if @group.save
+        format.html { redirect_to @group, notice: 'You have left the group!' }
+        format.json { render :show, status: :created, location: @group }
+      else
+        format.html { render :new }
+        format.json { render json: @group.errors, status: :unprocessable_entity }
+      end
+    end
+
   end
 
   # POST /groups
@@ -69,6 +100,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name)
+      params.require(:group).permit(:name, :description)
     end
 end
