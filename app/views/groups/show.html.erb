@@ -1,7 +1,28 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @group.name %><br /><small><%= @group.description %></small></h1>
 <hr />
-<% @group.people.each do |person| %>
-    <%= image_tag person.photo_url %>
-<% end %>
+<div class="row">
+  <div class="col-lg-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">About the Group</div>
+      <div class="panel-body">
+        <p>
+          <%= @group.about %>
+        </p>
+      </div>
+      </div>
+  </div>
+  <div class="col-lg-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">Group Members</div>
+      <div class="panel-body">
+        <% @group.people.each do |person| %>
+            <%= image_tag person.photo_url, size: "64" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <%= link_to 'Edit', edit_group_path(@group) %>
