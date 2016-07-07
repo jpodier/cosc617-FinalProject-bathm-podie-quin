@@ -3,5 +3,5 @@ class WallPost < ActiveRecord::Base
   validates_presence_of :person
   validates_presence_of :text
   has_many :wall_posts
-
+attr_accessible :text, :date
 end
