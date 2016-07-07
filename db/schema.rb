@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629015312) do
+ActiveRecord::Schema.define(version: 20160706233041) do
 
   create_table "friendships", force: :cascade do |t|
     t.string   "requester_id"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160629015312) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "photo"
   end
 
   add_index "people", ["email"], name: "index_people_on_email", unique: true

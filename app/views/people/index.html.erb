@@ -1,5 +1,8 @@
 <h1>All People</h1>
-
+<%= form_tag(people_path, :method => :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search People" %>
+    <%= submit_tag "Search" %>
+<%end %>
 <table class="table-striped">
   <thead>
     <tr>

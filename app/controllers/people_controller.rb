@@ -4,8 +4,15 @@ class PeopleController < ApplicationController
 
   # GET /people
   # GET /people.json
+  #
+  # if a search parameter is supplied, the people will be limited
+  # to those with a name like the search parameter
   def index
-    @people = Person.all
+    if params[:search]
+      @people = Person.search(params[:search])
+    else
+      @people = Person.all
+    end
   end
 
   # GET /people/1
@@ -70,6 +77,6 @@ class PeopleController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
-      params.require(:person).permit(:name, :email, :interests, :hobbies, :relationship)
+      params.require(:person).permit(:name, :email, :interests, :hobbies, :relationship, :photo)
     end
 end
