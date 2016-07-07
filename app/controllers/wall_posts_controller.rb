@@ -1,5 +1,5 @@
 class WallPostsController < ApplicationController
-  before_action :set_wall_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_wall_post, only: [:show, :edit, :create, :update, :destroy]
   before_action :authenticate_person!
 
   # GET /wall_posts
@@ -26,6 +26,7 @@ class WallPostsController < ApplicationController
   # POST /wall_posts.json
   def create
     @wall_post = WallPost.new(wall_post_params)
+    #@wall_post = WallPost.new(params[:wall_post])
 
     respond_to do |format|
       if @wall_post.save

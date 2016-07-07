@@ -2,6 +2,7 @@
 
 <h1>Listing Wall Posts</h1>
 
+<%= render 'form' %>
 <table>
   <thead>
     <tr>
@@ -21,11 +22,26 @@
         <td><%= link_to 'Show', wall_post %></td>
         <td><%= link_to 'Edit', edit_wall_post_path(wall_post) %></td>
         <td><%= link_to 'Destroy', wall_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       <td> <%= link_to 'New Wall post', new_wall_post_path %></td>
+
+        <td><%= button_to "New Wall Post",
+                      new_wall_post_path(:id => wall_post.id),
+                      :method => :post%></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+
 <br>
 
+
 <%= link_to 'New Wall post', new_wall_post_path %>
+
+<div class="form-group">
+  <%= f.label 'Update Wall Post' %><br>
+  <%= f.text_area :text, class: 'form-control', autofocus: true,
+                  placeholder: 'What\'s up?' %>
+</div>
+<%= f.submit :wall_post, class: 'btn btn-primary'%>
+<%end %>
