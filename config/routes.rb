@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   devise_for :people
-  resources :people
+  resources :people do
+    resources :wall_posts
+  end
   resources :friendships
   resources :groups do
     member do

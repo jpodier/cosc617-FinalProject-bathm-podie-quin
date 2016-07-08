@@ -1,55 +1,107 @@
-<p id="notice"><%= notice %></p>
+<div class="clearfix">
+  <div class="pull-right">
+    <%= image_tag @person.photo_url, height:"200" %>
+  </div>
+  <div>
+    <h1><%= @person.name %><br /><small><%= @person.hobbies %></small></h1>
+    <% if @person == current_person %>
+      <%= link_to 'Edit My Profile', edit_person_path(@person), class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @person.name %>
-</p>
+<hr />
+<div class="row">
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Contact Me
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Name:</strong>
+            <%= @person.name %>
+          </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= image_tag @person.photo_url %>
-</p>
+          <p>
+            <strong>Email:</strong>
+            <%= @person.email %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          About Me
+        </div>
+        <div class="panel-body">
+          <p>
+            <strong>Interests:</strong>
+            <%= @person.interests %>
+          </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @person.email %>
-</p>
+          <p>
+            <strong>Hobbies:</strong>
+            <%= @person.hobbies %>
+          </p>
 
-<p>
-  <strong>Interests:</strong>
-  <%= @person.interests %>
-</p>
-
-<p>
-  <strong>Hobbies:</strong>
-  <%= @person.hobbies %>
-</p>
-
-<p>
-  <strong>Relationship:</strong>
-  <%= @person.relationship %>
-</p>
-
-<h3>Friends:</h3>
-<ul>
-  <% @person.friends.each do |friend| %>
-      <li><%= friend.name %></li>
-  <% end %>
-</ul>
-
-<h3>Wall Posts:</h3>
-<ul>
-<% @person.wall_posts.each do |wall_post| %>
-  <li><%= wall_post.text %></li>
-<% end %>
-</ul>
-
-<h3>Groups:</h3>
-<ul>
-  <% @person.groups.each do |group| %>
-      <li><%= group.name %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+          <p>
+            <strong>Relationship:</strong>
+            <%= @person.relationship %>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          My Friends
+        </div>
+        <div class="panel-body">
+          <% @person.friends.each do |friend| %>
+              <%= link_to friend do %>
+                <%= image_tag friend.photo_url, size: "64", alt: friend.name %>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          My Groups
+        </div>
+        <div class="panel-body">
+          <ul>
+            <% @person.groups.each do |group| %>
+                <li><%= link_to group.name, group %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          My Wall
+        </div>
+        <div class="panel-body">
+          <table class="table-striped">
+            <% @person.wall_posts.each do |wall_post| %>
+                <tr>
+                  <td>
+                    <%= render partial: "wall_posts/show", locals:{wall_post: wall_post} %>
+                  </td>
+                </tr>
+            <% end %>
+          </table>
+          <%= link_to "New Post", new_person_wall_post_path(:person_id => @person.id) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

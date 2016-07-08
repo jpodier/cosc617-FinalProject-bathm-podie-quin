@@ -1,5 +1,5 @@
 class WallPostsController < ApplicationController
-  before_action :set_wall_post, only: [:show, :edit, :create, :update, :destroy]
+  before_action :set_wall_post, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_person!
 
   # GET /wall_posts
@@ -16,6 +16,7 @@ class WallPostsController < ApplicationController
   # GET /wall_posts/new
   def new
     @wall_post = WallPost.new
+    @person = Person.find(params[:person_id])
   end
 
   # GET /wall_posts/1/edit
@@ -25,12 +26,14 @@ class WallPostsController < ApplicationController
   # POST /wall_posts
   # POST /wall_posts.json
   def create
-    @wall_post = WallPost.new(wall_post_params)
-    #@wall_post = WallPost.new(params[:wall_post])
+    @person = Person.find(params[:person_id])
+    @wall_post = @person.wall_posts.build(wall_post_params)
+    @wall_post.date = DateTime.now;
+    @wall_post.author = current_person
 
     respond_to do |format|
       if @wall_post.save
-        format.html { redirect_to @wall_post, notice: 'Wall post was successfully created.' }
+        format.html { redirect_to @person, notice: 'Your post has been added to the wall' }
         format.json { render :show, status: :created, location: @wall_post }
       else
         format.html { render :new }
@@ -71,6 +74,6 @@ class WallPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wall_post_params
-      params.require(:wall_post).permit(:text, :date, :person)
+      params.require(:wall_post).permit(:text, :date, :person_id)
     end
 end

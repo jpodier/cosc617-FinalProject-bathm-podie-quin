@@ -17,7 +17,9 @@
       <div class="panel-heading">Group Members</div>
       <div class="panel-body">
         <% @group.people.each do |person| %>
-            <%= image_tag person.photo_url, size: "64" %>
+            <%= link_to person do %>
+              <%= image_tag person.photo_url, size: "64" %>
+            <% end %>
         <% end %>
       </div>
     </div>

@@ -1,7 +1,4 @@
 class WallPost < ActiveRecord::Base
   belongs_to :person
-  validates_presence_of :person
-  validates_presence_of :text
-  has_many :wall_posts
-attr_accessible :text, :date
+  belongs_to :author, :class_name => "Person", :foreign_key => "author_id"
 end

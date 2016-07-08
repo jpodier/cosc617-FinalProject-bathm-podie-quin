@@ -8,7 +8,6 @@
     <tr>
       <th>Text</th>
       <th>Date</th>
-      <th>Person</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,7 +17,6 @@
       <tr>
         <td><%= wall_post.text %></td>
         <td><%= wall_post.date %></td>
-        <td><%= wall_post.person %></td>
         <td><%= link_to 'Show', wall_post %></td>
         <td><%= link_to 'Edit', edit_wall_post_path(wall_post) %></td>
         <td><%= link_to 'Destroy', wall_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -44,4 +42,3 @@
                   placeholder: 'What\'s up?' %>
 </div>
 <%= f.submit :wall_post, class: 'btn btn-primary'%>
-<%end %>

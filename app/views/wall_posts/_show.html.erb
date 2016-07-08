@@ -1,0 +1,4 @@
+<p>
+  <%= wall_post.text %>
+</p>
+<small>by <%= link_to wall_post.author.name, person_path(wall_post.author)  %> at <%= DateTime.strptime(wall_post.date).strftime("%H:%M on %m/%d/%Y") %></small>

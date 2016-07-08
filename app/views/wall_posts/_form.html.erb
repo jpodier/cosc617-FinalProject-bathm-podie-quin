@@ -13,17 +13,10 @@
 
   <div class="field">
     <%= f.label :text %><br>
-    <%= f.text_field :text %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.text_field :date %>
-  </div>
-  <div class="field">
-    <%= f.label :person %><br>
-    <%= f.text_field :person %>
+    <%= f.text_area :text %>
   </div>
   <div class="actions">
+    <%= hidden_field_tag :person_id, @person.id %>
     <%= f.submit %>
   </div>
 <% end %>
