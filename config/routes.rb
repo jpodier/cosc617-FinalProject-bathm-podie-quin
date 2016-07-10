@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  devise_for :people
+  devise_for :people, controllers: {registrations: "registrations"}
   resources :people do
     resources :wall_posts
   end
