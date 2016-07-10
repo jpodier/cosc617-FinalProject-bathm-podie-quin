@@ -21,19 +21,19 @@
         <% if current_person.friends.include? person %>
             <td><%= button_to "Remove Friend",
                               friendship_path(:id => current_person.friendships.find_by(:requester_id => current_person.id, :granter_id => person.id).id),
-                              :method => :delete%></td>
+                              :method => :delete, class: "btn btn-danger"%></td>
         <% elsif current_person.pending_friends.include? person %>
             <td>
               <%= button_to "Accept Friend Request",
                             friendship_path(:id => current_person.pending_friendships.find_by(:requester_id => person.id, :granter_id => current_person.id).id,
-                                            :accepted => true), :method => :put %>
+                                            :accepted => true), :method => :put, class: "btn btn-success" %>
             </td>
         <% elsif current_person.awaiting_friends.include? person %>
             <td><%= button_to "Cancel Friend Request",
                               friendship_path(:id => current_person.awaiting_friendships.find_by(:requester_id => current_person.id, :granter_id => person.id).id),
-                              :method => :delete %></td>
+                              :method => :delete, class: "btn btn-warning" %></td>
         <%else %>
-            <td><%= button_to "Add Friend", friendships_path(:granter_id => person, :accepted => false), :method => :post %></td>
+            <td><%= button_to "Add Friend", friendships_path(:granter_id => person, :accepted => false), :method => :post, class: "btn btn-default" %></td>
         <% end %>
       </tr>
     <% end %>

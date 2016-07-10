@@ -21,11 +21,11 @@
         <% if current_person.groups.include? group %>
             <td><%= button_to "Leave Group",
                               remove_person_from_group_path(:id => group.id),
-                              :method => :delete%></td>
+                              :method => :delete, class: "btn btn-danger"%></td>
             <% else %>
             <td><%= button_to "Join Group",
                               add_person_to_group_path(:id => group.id),
-                              :method => :post%></td>
+                              :method => :post, class: "btn btn-default"%></td>
             <% end %>
       </tr>
     <% end %>

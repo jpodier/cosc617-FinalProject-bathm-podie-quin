@@ -3,7 +3,7 @@
     <%= image_tag @person.photo_url, height:"200" %>
   </div>
   <div>
-    <h1><%= @person.name %><br /><small><%= @person.hobbies %></small></h1>
+    <h1><%= @person.name %><br /><small><%= @person.status %></small></h1>
     <% if @person == current_person %>
       <%= link_to 'Edit My Profile', edit_person_path(@person), class: "btn btn-default" %>
     <% end %>

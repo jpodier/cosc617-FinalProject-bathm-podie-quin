@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
 <h1><%= @group.name %><br /><small><%= @group.description %></small></h1>
+<% if @group.people.include? current_person %>
+    <%= link_to 'Edit Group', edit_group_path(@group), class: "btn btn-default" %>
+<% end %>
 <hr />
 <div class="row">
   <div class="col-lg-8">

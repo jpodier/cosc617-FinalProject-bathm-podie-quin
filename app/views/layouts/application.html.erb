@@ -54,6 +54,7 @@
                 <li><%= link_to "Groups", "/groups"  %></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Welcome, <%= current_person.name %></a></li>
                 <li><%= link_to "Logout", destroy_person_session_path, :method => :delete  %> </li>
               </ul>
           <% end %>
