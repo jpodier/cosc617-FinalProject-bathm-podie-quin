@@ -14,48 +14,50 @@
 <div class="row">
   <div class="row">
     <div class="col-lg-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           Contact Me
         </div>
         <div class="panel-body">
           <p>
-            <strong>Name:</strong>
+            <span class="label label-info">Name:</span>
             <%= @person.name %>
           </p>
 
           <p>
-            <strong>Email:</strong>
+            <span class="label label-info">Email:</span>
             <%= @person.email %>
           </p>
         </div>
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           About Me
         </div>
         <div class="panel-body">
           <p>
-            <strong>Interests:</strong>
+            <span class="label label-info">Interests:</span>
             <%= @person.interests %>
           </p>
-
           <p>
-            <strong>Hobbies:</strong>
+            <span class="label label-info">Hobbies:</span>
             <%= @person.hobbies %>
           </p>
-
           <p>
-            <strong>Relationship:</strong>
+            <span class="label label-info">Status:</span>
+            <%= @person.status %>
+          </p>
+          <p>
+            <span class="label label-info">Relationship:</span>
             <%= @person.relationship %>
           </p>
         </div>
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           My Friends
         </div>
@@ -71,7 +73,7 @@
   </div>
   <div class="row">
     <div class="col-lg-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           My Groups
         </div>
@@ -85,7 +87,7 @@
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="panel panel-default">
+      <div class="panel panel-primary">
         <div class="panel-heading">
           My Wall
         </div>
